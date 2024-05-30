@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.12.2/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/10.12.2/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-performance-compat.js"></script>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+   
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <style media="screen">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* .gradient-bg { */
+            /* background: radial-gradient(circle at 70% 50%, rgba(255, 0, 0, 0.5), transparent); */
+        /* background: radial-gradient(circle at 80% 40% , rgb(241,87,85,0.7), transparent); */
+        /* background:radial-gradient(circle at 110% 0%,rgb(241,87,85,0.9) 55%, rgb(236,236,229) 90%);   */
+        .gradient-bg {
+    background: radial-gradient(circle at center, rgb(241, 87, 85, 0.9) 55%, rgb(236, 236, 229) 90%);
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+}
+
+.gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: 5%;
+    width: 150%;
+    height: 170%;
+    background: radial-gradient(circle at center, rgb(241, 87, 85, 0.9) 35%, rgb(236, 236, 229) 70%);
+    z-index: -1;
+}
+        </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+<script type="text/babel">
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+      const App = () => {
+            return (
+                <div className="flex flex-col items-center justify-center min-h-screen">
+                    <div className="bg-[rgb(236,236,229)] text-black p-10 rounded-lg relative w-3/4 max-w-4xl ">
+                        <div className="absolute top-4 right-4 flex space-x-4">
+                            <a href="#" className="text-black  text-xs">EN</a>
+                            <a href="#" className="text-black  text-xs">CONTACT US</a>
+                            <i className="fas fa-bars text-black  text-xs"></i>
+                        </div>
+                        <div className="text-7xl font-[455px] leading-tight">
+                            <p>WE CREATE</p>
+                            <p className="ml-[15%]">BEST DIG<span className=" gradient-bg">ITAL</span></p>
+                            <p>PRODUCTS.</p>
+                        </div>
+                        <div className="mt-10">
+                            <button className="border border-black px-4 py-2 rounded-full text-xs">
+                                DISCUSS THE PROJECT
+                            </button>
+                        </div>
+                        <div className="flex justify-between mt-10">
+                            <p className="text-xs mr-16">
+                                WE ARE THE LEADERS IN WEB & MOBILE DESIGN AND DEVELOPMENT INDUSTRY.
+                            </p>
+                            <p className="text-[10px]">
+                                We create quality content and cool ideas. We create websites, applications, 3D design, motion design and animation. We bring the most daring ideas to life.
+                            </p>
+                        </div>
+                        <div className="absolute bottom-4 right-4 flex items-center space-x-2 absolute top-[50%]">
+                            <p className="text-[9px]">WHO WE ARE</p>
+                            <i className="fas fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+
+
+
+  </body>
+</html>
